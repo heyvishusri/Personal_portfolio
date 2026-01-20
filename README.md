@@ -1,29 +1,33 @@
 # Personal Portfolio Website
 
-A modern, responsive portfolio website showcasing skills, education, and projects. Built with pure HTML5, CSS3, and JavaScript.
+A modern, responsive portfolio website built with React.js, Tailwind CSS, and Framer Motion. Features dark mode toggle, smooth animations, and a fully responsive design.
 
 ## 🚀 Features
 
-- **Fully Responsive Design** - Works seamlessly on desktop, tablet, and mobile devices
-- **Smooth Scrolling Navigation** - Enhanced user experience with smooth scroll behavior
-- **Active Navigation State** - Highlights current section in navigation menu
-- **Modern UI/UX** - Clean, dark theme with elegant animations and hover effects
-- **Accessibility** - Proper alt texts, ARIA labels, and semantic HTML
-- **SEO Optimized** - Meta descriptions and proper HTML structure
+- **React.js** - Modern component-based architecture
+- **Tailwind CSS** - Utility-first CSS framework with custom dark mode support
+- **Framer Motion** - Smooth animations and transitions
+- **Dark Mode Toggle** - Switch between light and dark themes with persistent preference
+- **Fully Responsive** - Works seamlessly on desktop, tablet, and mobile devices
+- **Smooth Scrolling Navigation** - Enhanced user experience with active section highlighting
+- **Contact Form** - Working contact form with validation
+- **Modern UI/UX** - Clean, professional design with elegant animations
 
 ## 📋 Sections
 
 1. **About Me** - Introduction and professional summary
-2. **Skills** - Technical skills with icons (HTML5, CSS3, JavaScript, React, Python, Node.js, Express.js, MongoDB, MySQL, Git, GitHub)
+2. **Skills** - Technical skills showcase with icons and hover effects
 3. **Education** - Educational background with timeline visualization
-4. **Portfolio** - Showcase of projects with descriptions and tech stacks
+4. **Projects** - Portfolio projects with descriptions and tech stacks
+5. **Contact** - Contact form for reaching out
 
 ## 🛠️ Technologies Used
 
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling with Grid, Flexbox, and animations
-- **JavaScript (ES6+)** - Smooth scrolling and navigation functionality
-- **Simple Icons** - Technology icons from Simple Icons
+- **React 18** - UI library
+- **Vite** - Build tool and dev server
+- **Tailwind CSS 3** - Styling
+- **Framer Motion** - Animation library
+- **Simple Icons** - Technology icons
 - **Unsplash** - Project placeholder images
 
 ## 📁 Project Structure
@@ -31,74 +35,124 @@ A modern, responsive portfolio website showcasing skills, education, and project
 ```
 Personal_portfolio/
 │
-├── index.html          # Main HTML file
-├── style.css           # Stylesheet with responsive design
-├── script.js           # JavaScript for navigation and interactions
-├── vishu.png          # Profile image
-└── README.md          # Project documentation
+├── public/
+│   └── vishu.png          # Profile image
+│
+├── src/
+│   ├── components/
+│   │   ├── About.jsx      # About section component
+│   │   ├── Contact.jsx    # Contact form component
+│   │   ├── Education.jsx  # Education timeline component
+│   │   ├── Footer.jsx     # Footer component
+│   │   ├── Header.jsx      # Navigation header component
+│   │   ├── Projects.jsx   # Projects showcase component
+│   │   ├── Sidebar.jsx    # Sidebar profile component
+│   │   └── Skills.jsx     # Skills grid component
+│   │
+│   ├── contexts/
+│   │   └── DarkModeContext.jsx  # Dark mode context provider
+│   │
+│   ├── App.jsx            # Main app component
+│   ├── main.jsx           # React entry point
+│   └── index.css          # Global styles and Tailwind imports
+│
+├── index.html             # HTML template
+├── package.json           # Dependencies and scripts
+├── vite.config.js         # Vite configuration
+├── tailwind.config.js     # Tailwind CSS configuration
+├── postcss.config.js      # PostCSS configuration
+└── README.md              # Project documentation
 ```
-
-## 🎨 Design Features
-
-- **Dark Theme** - Modern dark color scheme (#1e1e1e, #2a2a2a)
-- **Accent Color** - Golden yellow (#ffbf00) for highlights
-- **Sticky Sidebar** - Profile information stays visible while scrolling
-- **Hover Effects** - Interactive elements with smooth transitions
-- **Grid Layout** - Responsive grid system for skills and projects
-- **Timeline Design** - Visual timeline for education section
-
-## 📱 Responsive Breakpoints
-
-- **Desktop**: Full layout with sidebar and main content (1200px+)
-- **Tablet**: Single column layout (750px - 1200px)
-- **Mobile**: Optimized single column with adjusted spacing (< 750px)
 
 ## 🚀 Getting Started
 
-1. Clone or download this repository
-2. Open `index.html` in a web browser
-3. No build process or dependencies required - works out of the box!
+### Prerequisites
 
-## 📝 Customization
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone or download this repository
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The production build will be in the `dist` folder.
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## 🎨 Customization
 
 ### Update Personal Information
 
-Edit the following sections in `index.html`:
-- Profile image: Replace `vishu.png` with your image
-- Name and title: Update in the `.profile` section
-- Contact information: Email, phone, and location
-- Social media links: Update URLs in the `.social` section
+Edit the following files:
+- **Profile Image**: Replace `public/vishu.png` with your image
+- **Name and Title**: Update in `src/components/Sidebar.jsx`
+- **Contact Information**: Update email, phone, and location in `src/components/Sidebar.jsx`
+- **Social Media Links**: Update URLs in `src/components/Sidebar.jsx`
+- **About Section**: Edit content in `src/components/About.jsx`
 
 ### Modify Skills
 
-Add or remove skills in the `.grid-container` section:
-```html
-<div class="item">
-  <img src="YOUR_ICON_URL" alt="Skill Name" />
-  <h3>Skill Name</h3>
-</div>
+Edit the `skills` array in `src/components/Skills.jsx`:
+
+```jsx
+const skills = [
+  { name: 'Your Skill', icon: 'https://simpleicons.org/icons/yourskill.svg' },
+  // Add more skills...
+]
 ```
 
 ### Update Projects
 
-Modify the `.project-container` section to add your projects:
-```html
-<div class="project">
-  <img src="PROJECT_IMAGE_URL" alt="Project Name" />
-  <div class="card">
-    <h3>Project Title</h3>
-    <p>Project description</p>
-    <span>Tech1</span><span>Tech2</span><span>Tech3</span>
-  </div>
-</div>
+Edit the `projects` array in `src/components/Projects.jsx`:
+
+```jsx
+const projects = [
+  {
+    title: 'Your Project',
+    description: 'Project description',
+    image: 'project-image-url',
+    tags: ['React', 'Node.js'],
+  },
+  // Add more projects...
+]
 ```
 
 ### Change Colors
 
-Edit the color variables in `style.css`:
-- Background: `#1e1e1e`, `#2a2a2a`
-- Accent: `#ffbf00`
-- Text: `#a0a0a0`, `#e0e0e0`
+Edit the color scheme in `tailwind.config.js`:
+
+```js
+colors: {
+  primary: {
+    DEFAULT: '#ffbf00',  // Your primary color
+    dark: '#e6a800',
+  },
+  // Customize dark and light mode colors...
+}
+```
 
 ## 🌐 Browser Support
 
@@ -107,6 +161,25 @@ Edit the color variables in `style.css`:
 - Safari (latest)
 - Edge (latest)
 - Mobile browsers (iOS Safari, Chrome Mobile)
+
+## 📝 Features in Detail
+
+### Dark Mode
+
+The dark mode toggle persists user preference in localStorage. The theme automatically applies on page load based on saved preference.
+
+### Animations
+
+- **Framer Motion** animations on scroll
+- **Stagger animations** for skills and projects grids
+- **Hover effects** on interactive elements
+- **Smooth transitions** between sections
+
+### Responsive Design
+
+- **Desktop**: Full layout with sidebar and main content (1024px+)
+- **Tablet**: Single column layout (768px - 1024px)
+- **Mobile**: Optimized single column with adjusted spacing (< 768px)
 
 ## 📄 License
 
@@ -129,4 +202,3 @@ This project is open source and available for personal use.
 ---
 
 **Note**: Make sure to replace placeholder images and update all personal information before deploying to production.
-
